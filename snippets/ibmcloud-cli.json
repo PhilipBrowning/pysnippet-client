@@ -1,0 +1,17 @@
+[
+    {
+        "ibmcloud-cli-logout": [
+            "ibmcloud logout"
+        ]
+    },
+    {
+        "cluster context": [
+            "ibmcloud ks cluster config --cluster <cluster id>"
+        ]
+    },
+    {
+        "cli-show-cluster-workers": [
+            "ibmcloud ks workers --cluster <clustername>"
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "exec-container": [
+            "kubectl exec <podname> -n <namespace> -c <container name> -- <shell command>"
+        ]
+    },
+    {
+        "get-pods-namespace": [
+            "kubectl get pods -n monitoring -o wide"
+        ]
+    }
+]

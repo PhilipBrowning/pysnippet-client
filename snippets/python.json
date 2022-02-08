@@ -1,0 +1,7 @@
+[
+    {
+        "python-forloop": [
+            "for key in student_score:\n    print(key, ' : ', student_score[key])"
+        ]
+    }
+]

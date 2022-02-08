@@ -1,0 +1,15 @@
+[
+    {
+        "if statement": [
+            "if (x > y) {",
+            "    console.log(x);",
+            "}"
+        ]
+    },
+    {
+        "array-range-lodash": [
+            "// install lodash via npm i lodash --save",
+            "console.log(_.range(1,11));"
+        ]
+    }
+]
