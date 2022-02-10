@@ -53,7 +53,22 @@ class PySnip:
                             print(value)
                     elif snippet == "all":
                         print(k)
-
+    
+    def snip_session(self):
+        session = PromptSession()
+        print("Type in search to search for a snippet, add to add new snippet or avail for available: ")
+        user_input = session.prompt('# ')
+        user_input = user_input.split();
+        print(user_input)
+        #temp code to break out of session
+        if user_input[0] == 'exit':
+            return 0
+    
+    def main_session(self):
+        while(True):
+            search_session = self.snip_session()
+            if search_session == 0:
+                break
 
 
 if __name__ == '__main__':
@@ -62,4 +77,5 @@ if __name__ == '__main__':
     print('\n\n')
     mySnip.get_categ_snippets('javascript') 
     print('\n\n')
-    mySnip.get_snip_content('javascript', 'if statement') 
+    mySnip.get_snip_content('javascript', 'if statement')
+    mySnip.main_session()
