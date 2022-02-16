@@ -44,15 +44,41 @@ class PySnip:
         for filename in glob.glob(os.path.join(self.snippets_dir, '*.json')):
             with open(os.path.join(os.getcwd(), filename), 'r') as f:
                 self.get_snip_names(f)
+    def search_snippet(self, snipname):
+        for filename in glob.glob(os.path.join(self.snippets_dir, '*.json')):
+            with open(os.path.join(os.getcwd(), filename), 'r') as f:
+                data = json.load(f)    
+                for s in data:
+                    for k,v in s.items():
+                        if snipname == k:
+                            for value in v:
+                                print(value)
+                        else:
+                            pass
 
     def user_commands(self,command):
         '''Method that will check commands against list of available commands and execute'''
-        if (command == "show snippets"):
+        snip_name = command.split()
+        #if "get_command length = 1 assume snippet name and search
+        if ("show" not in snip_name):
+            self.search_snippet(command)
+        #if len > 1 get element 0 and determine if show or add
+        #if len > 2 command not found, len == 0 command not found
+        commands = ['show','categories','snippets']
+        if command == "show snippets":
+            print(snip_name)
             self.get_all_snippets()
+        elif command == "show categories":
+            self.get_categories()
+        elif command == "show category snippets":
+            category_name = input("Category name: ")
+            self.get_categ_snippets(category_name)
+        elif command == "show snip":
+            snip_name = input("snippet name: ")
+            print(snip_name)
         else:
             print("Command not found.")
-            return
-        
+        return 
 
     def snip_session(self):
         session = PromptSession()
@@ -74,9 +100,9 @@ class PySnip:
 if __name__ == '__main__':
     mySnip = PySnip()
     #testing methods
-    mySnip.get_categories()
-    print('\n\n')
-    mySnip.get_categ_snippets('javascript') 
-    print('\n\n')
-    mySnip.get_snip_content('javascript', 'if statement')
+    # mySnip.get_categories()
+    # print('\n\n')
+    # mySnip.get_categ_snippets('javascript') 
+    # print('\n\n')
+    # mySnip.get_snip_content('javascript', 'if statement')
     mySnip.main_session()
