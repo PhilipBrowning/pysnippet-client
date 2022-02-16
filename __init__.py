@@ -9,7 +9,6 @@ if __name__ == '__main__':
         # todo: history on wsl is not working so using history file for now
         session = PromptSession(history=FileHistory('./.pysnip_history'))
         user_input = session.prompt('# ')
-        #user_input = user_input.split();
         #main menu
         if user_input == 'exit':
             break

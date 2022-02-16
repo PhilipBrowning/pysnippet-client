@@ -45,6 +45,7 @@ class PySnip:
             with open(os.path.join(os.getcwd(), filename), 'r') as f:
                 self.get_snip_names(f)
     def search_snippet(self, snipname):
+        found = False
         for filename in glob.glob(os.path.join(self.snippets_dir, '*.json')):
             with open(os.path.join(os.getcwd(), filename), 'r') as f:
                 data = json.load(f)    
@@ -53,8 +54,9 @@ class PySnip:
                         if snipname == k:
                             for value in v:
                                 print(value)
-                        else:
-                            pass
+                                found = True
+        if not found:
+            print("Snippet not found")
 
     def user_commands(self,command):
         '''Method that will check commands against list of available commands and execute'''
@@ -75,8 +77,7 @@ class PySnip:
             snip_name = input("snippet name: ")
             print(snip_name)
         else:
-            print("Command not found.")
-        return 
+            return
 
     def snip_session(self):
         session = PromptSession()
