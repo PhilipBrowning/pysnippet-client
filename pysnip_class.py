@@ -59,11 +59,9 @@ class PySnip:
     def user_commands(self,command):
         '''Method that will check commands against list of available commands and execute'''
         snip_name = command.split()
-        #if "get_command length = 1 assume snippet name and search
+        #search snippet name if show not in command
         if ("show" not in snip_name):
             self.search_snippet(command)
-        #if len > 1 get element 0 and determine if show or add
-        #if len > 2 command not found, len == 0 command not found
         commands = ['show','categories','snippets']
         if command == "show snippets":
             print(snip_name)
