@@ -8,6 +8,7 @@ if __name__ == '__main__':
     while (True):
         # todo: history on wsl is not working so using history file for now
         session = PromptSession(history=FileHistory('./.pysnip_history'))
+        print("Enter command or help for list of commands.")
         user_input = session.prompt('# ')
         #main menu
         if user_input == 'exit':

@@ -10,6 +10,7 @@ from prompt_toolkit.application import run_in_terminal
 class PySnip:
     def __init__(self):
         self.snippets_dir = 'snippets/'
+        self.main_commands = ['search','show all','upload','add']
 
     def get_categories(self):
         print('\n---Getting all categories---\n')
@@ -60,22 +61,22 @@ class PySnip:
 
     def user_commands(self,command):
         '''Method that will check commands against list of available commands and execute'''
-        snip_name = command.split()
+        #snip_name = command.split()
         #search snippet name if show not in command
-        if ("show" not in snip_name):
-            self.search_snippet(command)
-        commands = ['show','categories','snippets']
+        if (command == "search"):
+            snip_name = input("Enter snippet name: ")
+            self.search_snippet(snip_name)
+        if (command == "help"):
+            print("The following commands are available.")
+            for command in self.main_commands:
+                print(command)
         if command == "show snippets":
-            print(snip_name)
             self.get_all_snippets()
         elif command == "show categories":
             self.get_categories()
         elif command == "show category snippets":
             category_name = input("Category name: ")
             self.get_categ_snippets(category_name)
-        elif command == "show snip":
-            snip_name = input("snippet name: ")
-            print(snip_name)
         else:
             return
 
