@@ -10,7 +10,8 @@ from prompt_toolkit.application import run_in_terminal
 class PySnip:
     def __init__(self):
         self.snippets_dir = 'snippets/'
-        self.main_commands = ['search','show all','upload','add']
+        self.main_commands = {'search':'search for specific snippet','show all categories':'show all groups of snippet types'
+            ,'show all snippets':'show all text snippets','add':'Add new snippet','upload':'To be added'}
 
     def get_categories(self):
         print('\n---Getting all categories---\n')
@@ -68,11 +69,11 @@ class PySnip:
             self.search_snippet(snip_name)
         if (command == "help"):
             print("The following commands are available.")
-            for command in self.main_commands:
-                print(command)
-        if command == "show snippets":
+            for item in self.main_commands:
+                print("\n{} : {}\n".format(item,self.main_commands[item]))
+        if command == "show all snippets":
             self.get_all_snippets()
-        elif command == "show categories":
+        elif command == "show all categories":
             self.get_categories()
         elif command == "show category snippets":
             category_name = input("Category name: ")
@@ -80,22 +81,8 @@ class PySnip:
         else:
             return
 
-    def snip_session(self):
-        session = PromptSession()
-        user_input = session.prompt('# ')
-        #user_input = user_input.split();
-        #main menu
-        if user_input == 'exit':
-            return 0
-        else:
-            self.user_commands(user_input)
-    
-    def main_session(self):
-        while (True):
-            search_session = self.snip_session()
-            if search_session == 0:
-                break
-
+    def add_snippet(self):
+        pass
 
 if __name__ == '__main__':
     mySnip = PySnip()
