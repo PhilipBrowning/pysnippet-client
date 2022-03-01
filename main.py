@@ -5,7 +5,7 @@ from prompt_toolkit.key_binding import KeyBindings
 from prompt_toolkit.key_binding.bindings.basic import load_basic_bindings
 from prompt_toolkit.application import run_in_terminal
 import argparse
-import pysnip_class
+import Pysnip
 
 bindings = KeyBindings()
 # key bindings
@@ -19,7 +19,7 @@ bindings = KeyBindings()
 #     return
 
 if __name__ == '__main__':
-    run_snip = pysnip_class.PySnip()
+    run_snip = Pysnip.PySnip()
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-s','--search',help="Add snippet name as argument to search for", type=str)
