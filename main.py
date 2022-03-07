@@ -22,7 +22,7 @@ if __name__ == '__main__':
     run_snip = Pysnip.PySnip()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-s','--search',help="Add snippet name as argument to search for", type=str)
+    parser.add_argument('-s','--snippet',help="Show snippet by snippet name", type=str)
     parser.add_argument('--allsnippets',help="Output all snippets",action='store_true')
     parser.add_argument('--addsnippet',help="Add a new snippet",action='store_true')
     parser.add_argument('-m','--menu',help="Run menu based input",action='store_true')
