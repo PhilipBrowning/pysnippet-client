@@ -28,7 +28,7 @@ if __name__ == '__main__':
     parser.add_argument('-m','--menu',help="Run menu based input",action='store_true')
 
     args = parser.parse_args()
-    if args.search:
+    if args.snippet:
         run_snip.search_snippet(args.search)
     elif args.allsnippets:
         run_snip.get_all_snippets()
