@@ -20,7 +20,7 @@ class PySnip:
             'show all snippets in category':'show all snippet names in category',
             'add':'Add new snippet',
             'add category':'Add new category',
-            'sync':'To be added'}
+            'upload':'To be added'}
 
     def get_categories(self):
         print('\n---Getting all categories---\n')
@@ -171,7 +171,11 @@ class PySnip:
                                 )
                             ),
                         )
-        layout = Layout(container=root_container) 
+        layout = Layout(container=root_container)
+
+        def upload_snippet(self):
+            pass
+
         @kb.add('c-q')
         def exit_(event):
             event.app.exit()
