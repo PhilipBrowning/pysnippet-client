@@ -1,6 +1,7 @@
 import os
 import json
 import glob
+import subprocess
 from prompt_toolkit import prompt
 from prompt_toolkit import PromptSession
 from prompt_toolkit.key_binding import KeyBindings
@@ -182,7 +183,10 @@ class PySnip:
         #app = Application(key_bindings=kb, full_screen=True)
         Application(layout=layout, key_bindings=kb, full_screen=True).run()
         #app.run()
-
+    def ext_edit_snip(self):
+        #get converted snippet to open as plain text in primary editor
+        pass
+        #close editor convert back to json and save
 
          
 
