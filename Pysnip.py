@@ -185,14 +185,15 @@ class PySnip:
         #app.run()
     def ext_edit_snip(self):
         #get converted snippet to open as plain text in primary editor
-        pass
+        subprocess.call(['vim','snippets/go.json'])
         #close editor convert back to json and save
 
          
 
 if __name__ == '__main__':
     mySnip = PySnip()
-    mySnip.update_snippet()
+    #mySnip.update_snippet()
+    mySnip.ext_edit_snip()
     #testing methods
     # mySnip.get_categories()
     # print('\n\n')
